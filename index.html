@@ -21,6 +21,13 @@
       transition: width 0.3s;
     }
 
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
     .nav-button {
       padding: 10px 16px;
       margin: 5px 0;
@@ -30,7 +37,7 @@
       border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.2s ease;
-      width: 100%;
+      width: 48%; /* Make buttons take up half of the row */
     }
 
     .nav-button:hover {
@@ -62,20 +69,21 @@
 <body>
   <button id="menu-toggle" onclick="toggleMenu()">Toggle Menu</button>
   <div id="buttons">
-    <!-- Panoramy -->
-    <button class="nav-button" onclick="viewer.setPanorama(pano)">Panorama</button>
+    <div class="button-row">
+      <!-- Panorama -->
+      <button class="nav-button" onclick="viewer.setPanorama(pano)">Panorama</button>
+      
+      <!-- Photos & Renderings -->
+      <button class="nav-button" onclick="window.open('zdj2.jpg')">Construction Photo 1</button>
+      <button class="nav-button" onclick="window.open('rfin2.png')">Render 1</button>
 
-    <!-- Zdjęcia rzeczywiste -->
-    <button class="nav-button" onclick="window.open('zdj2.jpg')">Construction Photo 2</button>
-    <button class="nav-button" onclick="window.open('zdj3.jpg')">Construction Photo 3</button>
-
-    <!-- Renderingi -->
-    <button class="nav-button" onclick="window.open('rfin2.png')">Render 2</button>
-    <button class="nav-button" onclick="window.open('rfin3.png')">Render 3</button>
-
-    <!-- Floorplany -->
-    <button class="nav-button" onclick="window.open('12601_MP_2025_1.png')">Floor Plan 1</button>
-    <button class="nav-button" onclick="window.open('12601_MP_2025V22[1].pdf')">Floor Plan 2 (PDF)</button>
+      <button class="nav-button" onclick="window.open('zdj3.jpg')">Construction Photo 2</button>
+      <button class="nav-button" onclick="window.open('rfin3.png')">Render 2</button>
+      
+      <!-- Floorplans -->
+      <button class="nav-button" onclick="window.open('12601_MP_2025V22[1].pdf')">Floor Plan 1 (PDF)</button>
+      <button class="nav-button" onclick="window.open('12601_MP_2025_1.png')">Floor Plan 2</button>
+    </div>
   </div>
 
   <div id="panorama"></div>
