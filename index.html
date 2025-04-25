@@ -16,16 +16,13 @@
       top: 10px;
       left: 10px;
       z-index: 10;
-      display: block;
+      display: flex;
+      flex-direction: column;
       width: 250px;
       transition: width 0.3s;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+      padding: 10px;
     }
 
     .nav-button {
@@ -37,11 +34,21 @@
       border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.2s ease;
-      width: 48%; /* Make buttons take up half of the row */
+      width: 100%;
     }
 
     .nav-button:hover {
       background-color: #ddd;
+    }
+
+    #menu-toggle {
+      padding: 10px;
+      background-color: #ffffffcc;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
     }
 
     #panorama {
@@ -49,41 +56,24 @@
       height: 100%;
     }
 
-    #menu-toggle {
-      position: absolute;
-      top: 10px;
-      left: 260px;
-      padding: 10px;
-      background-color: #ffffffcc;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
     #buttons.hidden {
-      width: 0;
-      overflow: hidden;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <button id="menu-toggle" onclick="toggleMenu()">Toggle Menu</button>
   <div id="buttons">
-    <div class="button-row">
-      <!-- Panorama -->
-      <button class="nav-button" onclick="viewer.setPanorama(pano)">Panorama</button>
-      
-      <!-- Photos & Renderings -->
-      <button class="nav-button" onclick="window.open('zdj2.jpg')">Construction Photo 1</button>
-      <button class="nav-button" onclick="window.open('rfin2.png')">Render 1</button>
+    <!-- Przycisk Toggle Menu -->
+    <button id="menu-toggle" onclick="toggleMenu()">Toggle Menu</button>
 
-      <button class="nav-button" onclick="window.open('zdj3.jpg')">Construction Photo 2</button>
-      <button class="nav-button" onclick="window.open('rfin3.png')">Render 2</button>
-      
-      <!-- Floorplans -->
-      <button class="nav-button" onclick="window.open('12601_MP_2025V22[1].pdf')">Floor Plan 1 (PDF)</button>
-      <button class="nav-button" onclick="window.open('12601_MP_2025_1.png')">Floor Plan 2</button>
-    </div>
+    <!-- Przyciski Menu -->
+    <button class="nav-button" onclick="viewer.setPanorama(pano)">Panorama</button>
+    <button class="nav-button" onclick="window.open('zdj2.jpg')">Construction Photo 1</button>
+    <button class="nav-button" onclick="window.open('rfin2.png')">Render 1</button>
+    <button class="nav-button" onclick="window.open('zdj3.jpg')">Construction Photo 2</button>
+    <button class="nav-button" onclick="window.open('rfin3.png')">Render 2</button>
+    <button class="nav-button" onclick="window.open('12601_MP_2025V22[1].pdf')">Floor Plan 1 (PDF)</button>
+    <button class="nav-button" onclick="window.open('12601_MP_2025_1.png')">Floor Plan 2</button>
   </div>
 
   <div id="panorama"></div>
