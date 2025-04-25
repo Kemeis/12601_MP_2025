@@ -16,8 +16,7 @@
       top: 10px;
       left: 10px;
       z-index: 10;
-      display: flex;
-      flex-direction: column;
+      display: block;
       width: 250px;
       transition: width 0.3s;
       background-color: rgba(255, 255, 255, 0.7);
@@ -41,7 +40,7 @@
       border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.2s ease;
-      width: 48%; /* Make buttons take up half of the row */
+      width: 48%;
     }
 
     .nav-button:hover {
@@ -55,7 +54,7 @@
       border-radius: 6px;
       cursor: pointer;
       width: 48%;
-      margin-left: 4%; /* Adding space between "Panorama" and "Toggle Menu" */
+      margin-left: 4%; /* Space between "Panorama" and "Toggle Menu" */
     }
 
     #panorama {
@@ -70,13 +69,13 @@
 </head>
 <body>
   <div id="buttons">
-    <!-- Pierwszy rząd przycisków: Panorama + Toggle -->
+    <!-- First row: Panorama + Toggle -->
     <div class="button-row">
       <button class="nav-button" onclick="viewer.setPanorama(pano)">Panorama</button>
       <button id="menu-toggle" onclick="toggleMenu()">Toggle Menu</button>
     </div>
 
-    <!-- Drugi rząd przycisków: Zdjęcia, Renderingi i Floorplany -->
+    <!-- Second row: Photos, Renderings and Floor Plans -->
     <div class="button-row">
       <button class="nav-button" onclick="window.open('zdj2.jpg')">Construction Photo 1</button>
       <button class="nav-button" onclick="window.open('rfin2.png')">Render 1</button>
