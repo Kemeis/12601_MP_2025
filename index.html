@@ -1,6 +1,4 @@
-# Nowy index.html bez "Toggle Menu" i szerokim przyciskiem "Panorama"
-
-html_content_updated = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
@@ -42,7 +40,7 @@ html_content_updated = '''<!DOCTYPE html>
       border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.2s ease;
-      width: 100%; /* Make Panorama button wide */
+      width: 48%; /* Make buttons take up half of the row */
     }
 
     .nav-button:hover {
@@ -52,6 +50,8 @@ html_content_updated = '''<!DOCTYPE html>
     #panorama {
       width: 100%;
       height: 100%;
+      position: absolute;
+      bottom: 10px;
     }
 
     #buttons.hidden {
@@ -61,12 +61,7 @@ html_content_updated = '''<!DOCTYPE html>
 </head>
 <body>
   <div id="buttons">
-    <!-- Pierwszy rząd: tylko Panorama, szeroki przycisk -->
-    <div class="button-row">
-      <button class="nav-button" onclick="viewer.setPanorama(pano)">Panorama</button>
-    </div>
-
-    <!-- Drugi rząd: Zdjęcia, Renderingi i Floor Plans -->
+    <!-- Przyciski w dwóch rzędach -->
     <div class="button-row">
       <button class="nav-button" onclick="window.open('zdj2.jpg')">Construction Photo 1</button>
       <button class="nav-button" onclick="window.open('rfin2.png')">Render 1</button>
@@ -99,11 +94,3 @@ html_content_updated = '''<!DOCTYPE html>
   </script>
 </body>
 </html>
-'''
-
-# Zapisywanie pliku index.html
-file_path_updated = "/mnt/data/example_project_index_updated.html"
-with open(file_path_updated, "w", encoding="utf-8") as f:
-    f.write(html_content_updated)
-
-file_path_updated
