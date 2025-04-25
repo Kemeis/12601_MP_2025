@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+# Nowy index.html bez "Toggle Menu" i szerokim przyciskiem "Panorama"
+
+html_content_updated = '''<!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
@@ -40,21 +42,11 @@
       border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.2s ease;
-      width: 48%;
+      width: 100%; /* Make Panorama button wide */
     }
 
     .nav-button:hover {
       background-color: #ddd;
-    }
-
-    #menu-toggle {
-      padding: 10px;
-      background-color: #ffffffcc;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      width: 48%;
-      margin-left: 4%; /* Space between "Panorama" and "Toggle Menu" */
     }
 
     #panorama {
@@ -69,13 +61,12 @@
 </head>
 <body>
   <div id="buttons">
-    <!-- First row: Panorama + Toggle -->
+    <!-- Pierwszy rząd: tylko Panorama, szeroki przycisk -->
     <div class="button-row">
       <button class="nav-button" onclick="viewer.setPanorama(pano)">Panorama</button>
-      <button id="menu-toggle" onclick="toggleMenu()">Toggle Menu</button>
     </div>
 
-    <!-- Second row: Photos, Renderings and Floor Plans -->
+    <!-- Drugi rząd: Zdjęcia, Renderingi i Floor Plans -->
     <div class="button-row">
       <button class="nav-button" onclick="window.open('zdj2.jpg')">Construction Photo 1</button>
       <button class="nav-button" onclick="window.open('rfin2.png')">Render 1</button>
@@ -105,11 +96,14 @@
 
     viewer.add(pano);
     viewer.setPanorama(pano); // Start with panorama
-
-    // Toggle menu visibility
-    function toggleMenu() {
-      document.getElementById("buttons").classList.toggle("hidden");
-    }
   </script>
 </body>
 </html>
+'''
+
+# Zapisywanie pliku index.html
+file_path_updated = "/mnt/data/example_project_index_updated.html"
+with open(file_path_updated, "w", encoding="utf-8") as f:
+    f.write(html_content_updated)
+
+file_path_updated
