@@ -72,7 +72,8 @@
       <button class="nav-button" onclick="window.open('12601_MP_2025V22[1].pdf')">Floor Plan 1 (PDF)</button>
       <button class="nav-button" onclick="window.open('12601_MP_2025_1.png')">Floor Plan 2</button>
 
-      <button class="nav-button" onclick="window.open('newpano.png')">New Panorama</button>
+      <!-- Nowy przycisk dla nowej panoramy -->
+      <button class="nav-button" onclick="loadNewPanorama()">New Panorama</button>
     </div>
   </div>
 
@@ -82,9 +83,8 @@
   <script src="https://cdn.jsdelivr.net/gh/pchen66/panolens.js@0.10.2/build/panolens.min.js"></script>
 
   <script>
-    // Panoramy
+    // Inicjalizacja panoramy
     const pano = new PANOLENS.ImagePanorama('pano.png');
-
     const viewer = new PANOLENS.Viewer({
       container: document.querySelector('#panorama'),
       output: 'console',
@@ -92,18 +92,14 @@
     });
 
     viewer.add(pano);
+    viewer.setPanorama(pano); // Start with initial panorama
 
-        // Panoramy
-    const npano = new PANOLENS.ImagePanorama('newpano.png');
-
-    const viewer = new PANOLENS.Viewer({
-      container: document.querySelector('#panorama'),
-      output: 'console',
-      autoRotate: false
-    });
-
-    viewer.add(npano);
-    viewer.setPanorama(npano); // Start with panorama
+    // Funkcja ładowania nowej panoramy
+    function loadNewPanorama() {
+      const newPano = new PANOLENS.ImagePanorama('newpano.png');
+      viewer.add(newPano);
+      viewer.setPanorama(newPano); // Załaduj nową panoramę
+    }
   </script>
 </body>
 </html>
