@@ -92,7 +92,18 @@
     });
 
     viewer.add(pano);
-    viewer.setPanorama(pano); // Start with panorama
+
+        // Panoramy
+    const npano = new PANOLENS.ImagePanorama('newpano.png');
+
+    const viewer = new PANOLENS.Viewer({
+      container: document.querySelector('#panorama'),
+      output: 'console',
+      autoRotate: false
+    });
+
+    viewer.add(npano);
+    viewer.setPanorama(npano); // Start with panorama
   </script>
 </body>
 </html>
