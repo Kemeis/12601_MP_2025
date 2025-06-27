@@ -40,7 +40,7 @@
       border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.2s ease;
-      width: 48%; /* Make buttons take up half of the row */
+      width: 48%;
     }
 
     .nav-button:hover {
@@ -61,7 +61,6 @@
 </head>
 <body>
   <div id="buttons">
-    <!-- Przyciski w dwóch rzędach -->
     <div class="button-row">
       <button class="nav-button" onclick="window.open('zdj2.jpg')">Construction Photo 1</button>
       <button class="nav-button" onclick="window.open('rfin2.png')">Render 1</button>
@@ -72,8 +71,10 @@
       <button class="nav-button" onclick="window.open('12601_MP_2025V22[1].pdf')">Floor Plan 1 (PDF)</button>
       <button class="nav-button" onclick="window.open('12601_MP_2025_1.png')">Floor Plan 2</button>
 
-      <!-- Nowy przycisk dla nowej panoramy -->
-      <button class="nav-button" onclick="loadNewPanorama()">New Panorama</button>
+      <!-- Zmieniona etykieta przycisku -->
+      <button class="nav-button" onclick="loadPanorama1806()">Panorama 18.06</button>
+      <!-- Nowy przycisk dla panoramy 27.06 -->
+      <button class="nav-button" onclick="loadPanorama2706()">Panorama 27.06</button>
     </div>
   </div>
 
@@ -83,7 +84,6 @@
   <script src="https://cdn.jsdelivr.net/gh/pchen66/panolens.js@0.10.2/build/panolens.min.js"></script>
 
   <script>
-    // Inicjalizacja panoramy
     const pano = new PANOLENS.ImagePanorama('pano.png');
     const viewer = new PANOLENS.Viewer({
       container: document.querySelector('#panorama'),
@@ -92,13 +92,18 @@
     });
 
     viewer.add(pano);
-    viewer.setPanorama(pano); // Start with initial panorama
+    viewer.setPanorama(pano);
 
-    // Funkcja ładowania nowej panoramy
-    function loadNewPanorama() {
-      const newPano = new PANOLENS.ImagePanorama('newpano.png');
-      viewer.add(newPano);
-      viewer.setPanorama(newPano); // Załaduj nową panoramę
+    function loadPanorama1806() {
+      const pano1806 = new PANOLENS.ImagePanorama('newpano.png');
+      viewer.add(pano1806);
+      viewer.setPanorama(pano1806);
+    }
+
+    function loadPanorama2706() {
+      const pano2706 = new PANOLENS.ImagePanorama('newpano2706.png');
+      viewer.add(pano2706);
+      viewer.setPanorama(pano2706);
     }
   </script>
 </body>
