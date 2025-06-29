@@ -71,10 +71,9 @@
       <button class="nav-button" onclick="window.open('12601_MP_2025V22[1].pdf')">Floor Plan 1 (PDF)</button>
       <button class="nav-button" onclick="window.open('12601_MP_2025_1.png')">Floor Plan 2</button>
 
-      <!-- Zmieniona etykieta przycisku -->
       <button class="nav-button" onclick="loadPanorama1806()">Panorama 18.06</button>
-      <!-- Nowy przycisk dla panoramy 27.06 -->
       <button class="nav-button" onclick="loadPanorama2706()">Panorama 27.06</button>
+      <button class="nav-button" onclick="loadPanorama2906()">Panorama 29.06</button>
     </div>
   </div>
 
@@ -104,6 +103,12 @@
       const pano2706 = new PANOLENS.ImagePanorama('newpano2706.png');
       viewer.add(pano2706);
       viewer.setPanorama(pano2706);
+    }
+
+    function loadPanorama2906() {
+      const pano2906 = new PANOLENS.ImagePanorama('nosz.png');
+      viewer.add(pano2906);
+      viewer.setPanorama(pano2906);
     }
   </script>
 </body>
